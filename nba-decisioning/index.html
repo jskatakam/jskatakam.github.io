@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>From Selecting to Constructing</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300&family=Inter:wght@400;500;600;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f1eb;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 3rem 1.5rem;
+    }
+
+    .page {
+      background: #fff;
+      max-width: 780px;
+      width: 100%;
+      padding: 4rem 4.5rem;
+      box-shadow: 0 8px 48px rgba(0,0,0,.12), 0 2px 8px rgba(0,0,0,.06);
+      border-radius: 4px;
+      border-top: 6px solid #1a1a2e;
+    }
+
+    /* Header */
+    .header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e8e4dc;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #c0392b;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'Merriweather', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+    }
+
+    h1 span {
+      color: #c0392b;
+    }
+
+    .subtitle {
+      font-size: .85rem;
+      color: #888;
+      font-style: italic;
+      font-family: 'Merriweather', serif;
+      line-height: 1.6;
+      border-left: 3px solid #e8e4dc;
+      padding-left: 1rem;
+    }
+
+    .byline {
+      font-size: .82rem;
+      font-family: 'Inter', sans-serif;
+      color: #555;
+      margin-top: .75rem;
+      font-weight: 600;
+      letter-spacing: .3px;
+    }
+
+    /* Sections */
+    .section {
+      margin-bottom: 2.25rem;
+    }
+
+    h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: #c0392b;
+      margin-bottom: .75rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #e8e4dc;
+    }
+
+    p {
+      font-family: 'Merriweather', serif;
+      font-size: .88rem;
+      line-height: 1.85;
+      color: #2c2c2c;
+      margin-bottom: 1rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* Bullets */
+    .tension-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .85rem;
+      margin-top: .5rem;
+    }
+
+    .tension-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: .85rem 1rem;
+      background: #faf9f6;
+      border-radius: 6px;
+      border-left: 3px solid #1a1a2e;
+    }
+
+    .tension-label {
+      font-family: 'Inter', sans-serif;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: #1a1a2e;
+      min-width: 100px;
+      padding-top: .1rem;
+    }
+
+    .tension-text {
+      font-family: 'Merriweather', serif;
+      font-size: .82rem;
+      line-height: 1.7;
+      color: #2c2c2c;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      margin: 2rem 0;
+      padding: 1.25rem 1.75rem;
+      border-left: 3px solid #c0392b;
+    }
+
+    .pull-quote p {
+      font-family: 'Merriweather', serif;
+      font-size: .95rem;
+      font-weight: 300;
+      font-style: italic;
+      color: #2c2c2c;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    .pull-quote p strong {
+      font-weight: 700;
+      color: #c0392b;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e8e4dc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-note {
+      font-size: .72rem;
+      color: #aaa;
+      font-style: italic;
+      font-family: 'Merriweather', serif;
+    }
+
+    .footer-tag {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #c0392b;
+    }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .page { box-shadow: none; border-radius: 0; padding: 2.5rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <div class="header">
+      <div class="tag">Customer Decisioning · AI &amp; NBA</div>
+      <h1>From Selecting to Constructing:<br /><span>How AI Could Reshape Customer Decisioning</span></h1>
+      <div class="byline">By Joseph Katakam</div>
+    </div>
+
+    <div class="section">
+      <h2>The Current State of NBA</h2>
+      <p>Next Best Action frameworks have become a common foundation for personalized customer engagement across large enterprises. The model is well understood: maintain a catalog of predefined offers, score each customer's propensity to respond, apply arbitration rules to resolve conflicts, and route the winner to the appropriate channel.</p>
+
+      <p>The platforms continue to evolve along that path — supporting reinforcement learning for arbitration, real-time propensity updating, and unstructured signal ingestion from call transcripts and chat.</p>
+
+      <p>How much of that capability is fully activated in production varies considerably by organization, maturity, and appetite for ceding arbitration decisions to a model.</p>
+
+      <p>The result is a decisioning layer that is more sophisticated in its scoring than it once was, but still fundamentally rule-governed — and that is the boundary AI is beginning to challenge.</p>
+    </div>
+
+    <div class="section">
+      <h2>From Selecting to Constructing</h2>
+      <p>There are early indicators of this shift, though the picture is uneven. Generative AI is being used to dynamically construct offer messaging and copy, moving beyond predefined templates. Some organizations are experimenting with dynamic bundling. Early agentic pilots are exploring what it looks like to give a model customer context and ask it to reason about the right action, rather than score a predefined set.</p>
+      <p>But the core decisioning layer remains largely catalog-based. How far that transition extends into the core decisioning layer — and whether the catalog itself eventually gives way to a generative layer — is still an open question.</p>
+    </div>
+
+    <div class="section">
+      <h2>Pricing as a Constructed Decision: Where It Gets Complicated</h2>
+      <p>Consider pricing. In the current model, price points are fixed upstream. The decisioning engine selects which predefined offer to present — not what the price should be. AI changes that boundary.</p>
+      <p>A model with sufficient context — churn risk, lifetime value, service history, willingness-to-pay indicators — could construct a personalized offer at a price point optimized for that individual. The capability is real. And as it matures, the complications are likely to grow with it. If two customers in similar situations are offered materially different prices, questions of fairness, consistency, and regulatory compliance follow immediately. How that affects customer trust and brand perception is a question organizations will need to reckon with.</p>
+    </div>
+
+    <div class="section">
+      <h2>Governance: Can It Keep Up?</h2>
+      <p>The governance framework that works for catalog-based NBA was designed for a world where decisions are selected from a predefined set. When the action is constructed at runtime, that framework doesn't map cleanly. You cannot suppress an offer that doesn't exist until the moment it's generated. You cannot audit a decision tree that wasn't followed.</p>
+      <p>This creates three specific tensions:</p>
+      <ul class="tension-list">
+        <li>
+          <span class="tension-label">Consistency</span>
+          <span class="tension-text">Will two customers in similar situations receive meaningfully similar treatment? In a catalog-based system, consistency is enforced by the catalog. In a constructed system, it has to be enforced elsewhere.</span>
+        </li>
+        <li>
+          <span class="tension-label">Compliance</span>
+          <span class="tension-text">Enforcing regulatory constraints on dynamically generated offers requires a different kind of compliance layer than reviewing a predefined catalog.</span>
+        </li>
+        <li>
+          <span class="tension-label">Explainability</span>
+          <span class="tension-text">When a regulator asks why a specific customer received a specific offer at a specific price, the answer needs to be reproducible and coherent. That is harder when the decision emerged from a model.</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Where Things Are Heading</h2>
+      <p>The trajectory is toward AI taking a larger role in the decisioning stack — not just scoring but constructing, not just routing but reasoning. The industry may need governance frameworks purpose-built for this paradigm, not extensions of catalog-and-rules models. That work is early.</p>
+    </div>
+
+    <div class="pull-quote">
+      <p>If the pattern holds, the capability will move faster than the governance infrastructure around it — and <strong>that gap is worth watching.</strong></p>
+    </div>
+
+    <div class="footer">
+      <span class="footer-note">Not a prescription for any particular vendor or approach.</span>
+      <span class="footer-tag">Joseph Katakam · Observations</span>
+    </div>
+
+  </div>
+</body>
+</html>
